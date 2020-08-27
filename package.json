@@ -32,11 +32,12 @@
         }
     },
     "devDependencies": {
-        "@tomchinery/eslint-config": "^0.0.3",
-        "@tomchinery/prettier-config": "^0.0.1",
         "@commitlint/cli": "^8.1.0",
         "@commitlint/config-conventional": "^8.1.0",
+        "@tomchinery/eslint-config": "^0.0.3",
+        "@tomchinery/prettier-config": "^0.0.1",
         "@types/jest": "^24.0.18",
+        "@types/jsonwebtoken": "^8.5.0",
         "@types/node": "^14.0.5",
         "eslint": "^6.2.2",
         "husky": "^3.0.5",
@@ -46,6 +47,7 @@
         "typescript": "<3.6.0"
     },
     "dependencies": {
-        "esm": "^3.2.25"
+        "esm": "^3.2.25",
+        "jsonwebtoken": "^8.5.1"
     }
 }
