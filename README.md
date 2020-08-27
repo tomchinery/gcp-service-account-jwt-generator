@@ -33,7 +33,7 @@ $ npm install -g @tomchinery/gcp-service-account-jwt-generator
 
 ## Usage
 
-Upon running the CLI it will output an Authorization Bearer to STDOUT that is signed with your GCP Service Account.
+Upon running the CLI it will output an Authorization Bearer token to STDOUT that is signed with your GCP Service Account.
 
 ```bash
 $ gcp-service-account-jwt-generator --service-account <path_to_your_service_account>
