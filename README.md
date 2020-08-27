@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="500" src="media/gcp-service-account-jwt-generator-logo.svg" alt="GCP Service Account JWT Generator">
+  <img width="500" src="media/gcp-service-account-jwt-generator-logo.svg" alt="GCP Service Account JWT Generator ">
   <br>
   <br>
   <a href="https://github.com/tomchinery/gcp-service-account-jwt-generator/blob/main/LICENSE">
