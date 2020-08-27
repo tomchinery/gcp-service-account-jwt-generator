@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="500" src="media/gcp-service-account-jwt-generator-logo.svg" alt="Branch Merger">
+  <img width="500" src="media/gcp-service-account-jwt-generator-logo.svg" alt="GCP Service Account JWT Generator">
   <br>
   <br>
   <a href="https://github.com/tomchinery/gcp-service-account-jwt-generator/blob/main/LICENSE">
@@ -8,7 +8,7 @@
   <br>
   <br>
   <p>
-  Service Account JWT Generator is a CLI tool that generates a JWT token for Service Account authorization without OAuth on GCP.
+  This is a CLI tool that generates a JWT token for Service Account authorization without OAuth on GCP.
   </p>
 </div>
 
@@ -35,11 +35,16 @@ $ npm install -g @tomchinery/gcp-service-account-jwt-generator
 
 Upon running the CLI it will output an Authorization Bearer to STDOUT that is signed with your GCP Service Account.
 
-There is a required argument of the tool:
-
 ```bash
 $ gcp-service-account-jwt-generator --service-account <path_to_your_service_account>
 ```
+
+There is a required argument of the tool:
+
+```bash
+--service-account
+```
+The path to the service account credentials file you want to use to sign your JWT.
 
 ## Usecases
 
