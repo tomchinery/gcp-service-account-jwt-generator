@@ -1,0 +1,51 @@
+{
+    "name": "@tomchinery/gcp-service-account-jwt-generator",
+    "version": "0.0.1",
+    "description": "This is a CLI tool that generates a JWT for Service Account authorization without OAuth on GCP.",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "prettier": "@tomchinery/prettier-config",
+    "bin": {
+        "gcp-service-account-jwt-generator": "bin/cli"
+    },
+    "scripts": {
+        "prepare": "npm run build",
+        "build": "tsc",
+        "test": "jest --coverage",
+        "test.watch": "jest --coverage --watch",
+        "lint": "eslint ./src/ --fix --ext .js,.jsx,.ts,.tsx --max-warnings 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:tomchinery/gcp-service-account-jwt-generator.git"
+    },
+    "author": "Tom Chinery <tom@tomchinery.com>",
+    "license": "MIT",
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "devDependencies": {
+        "@tomchinery/eslint-config": "^0.0.3",
+        "@tomchinery/prettier-config": "^0.0.1",
+        "@commitlint/cli": "^8.1.0",
+        "@commitlint/config-conventional": "^8.1.0",
+        "@types/jest": "^24.0.18",
+        "@types/node": "^14.0.5",
+        "eslint": "^6.2.2",
+        "husky": "^3.0.5",
+        "jest": "^24.9.0",
+        "prettier": "^1.18.2",
+        "ts-jest": "^24.0.2",
+        "typescript": "<3.6.0"
+    },
+    "dependencies": {
+        "esm": "^3.2.25"
+    }
+}
