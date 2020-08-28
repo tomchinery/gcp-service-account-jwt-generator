@@ -8,7 +8,7 @@
   <br>
   <br>
   <p>
-  This is a CLI tool that generates a JWT token for Service Account authorization without OAuth on GCP.
+  This is a CLI tool that generates a JWT token for Service Account authorization on GCP.
   </p>
 </div>
 
@@ -39,12 +39,17 @@ Upon running the CLI it will output an Authorization Bearer token to STDOUT that
 $ gcp-service-account-jwt-generator --service-account <path_to_your_service_account>
 ```
 
-There is a required argument of the tool:
+There is some required arguments of the tool:
 
 ```bash
 --service-account
 ```
 The path to the service account credentials file you want to use to sign your JWT.
+
+```bash
+--target-audience
+```
+The [OAuth Client ID](https://cloud.google.com/iap/docs/authentication-howto#authenticating_from_a_service_account) for the resource you want to access.
 
 ## Usecases
 

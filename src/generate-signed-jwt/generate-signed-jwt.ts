@@ -1,7 +1,10 @@
 import * as jwt from 'jsonwebtoken';
 import { promises as fs } from 'fs';
 
-export async function generateSignedJWT(serviceAccountPath: string): Promise<string> {
+export async function generateSignedJWT(
+  serviceAccountPath: string,
+  targetAudience: string
+): Promise<string> {
   try {
     const serviceAccountBuffer: Buffer = await fs.readFile(serviceAccountPath);
     const serviceAccountObject: any = JSON.parse(serviceAccountBuffer.toString());
@@ -14,18 +17,15 @@ export async function generateSignedJWT(serviceAccountPath: string): Promise<str
         sub: serviceAccountObject.client_email,
         iat: issuedAt,
         exp: expiresAt,
-        aud: '740451786387-tisefg92mooistqcg607ag599fof261s.apps.googleusercontent.com',
-        // 'https://spinnaker-1.endpoints.ate-dev-services.cloud.goog/'
-        //         aud: 'https://oauth2.googleapis.com/token',
+        aud: 'https://oauth2.googleapis.com/token',
+        target_audience: targetAudience
       },
-      serviceAccountBuffer.toString(),
+      serviceAccountObject.private_key,
       {
         algorithm: 'RS256',
         keyid: serviceAccountObject.private_key_id
       }
     );
-
-    const isValid = jwt.verify(signedJWT, serviceAccountObject.private_key, { algorithms: ['RS256'] });
 
     return signedJWT;
   } catch (error) {

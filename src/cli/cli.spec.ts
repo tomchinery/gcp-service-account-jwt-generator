@@ -16,10 +16,29 @@ describe('cli', (): void => {
     expect(process.exit).toHaveBeenCalled();
   });
 
-  it('should call generateSignedJWT and log its output to console', async (): Promise<void> => {
+  it('should error and exit if targetAudience argument is not set', async (): Promise<void> => {
     const args: string[] = [
       CLIArgs.serviceAccount,
       './service-account.json'
+    ];
+
+    spyOn(console, 'error').and.stub();
+    spyOn(process, 'exit').and.stub();
+
+    await cli(args);
+
+    expect(console.error).toHaveBeenCalledWith(
+      `GCPServiceAccountJWTGenerator: ${CLIArgs.targetAudience} argument is required.`,
+    );
+    expect(process.exit).toHaveBeenCalled();
+  });
+
+  it('should call generateSignedJWT and log its output to console', async (): Promise<void> => {
+    const args: string[] = [
+      CLIArgs.serviceAccount,
+      './service-account.json',
+      CLIArgs.targetAudience,
+      'some-client-id.apps.googleusercontent.com'
     ];
 
     spyOn(jwtGenerator, 'generateSignedJWT').and.returnValue('test-jwt')
@@ -27,7 +46,7 @@ describe('cli', (): void => {
 
     await cli(args);
 
-    expect(jwtGenerator.generateSignedJWT).toHaveBeenCalledWith(args[1]);
+    expect(jwtGenerator.generateSignedJWT).toHaveBeenCalledWith(args[1], args[3]);
     expect(console.info).toHaveBeenCalledWith('test-jwt');
   });
 });
