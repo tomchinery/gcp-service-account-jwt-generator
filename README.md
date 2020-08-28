@@ -8,7 +8,7 @@
   <br>
   <br>
   <p>
-  This is a CLI tool that generates a JWT token for Service Account authorization on GCP.
+  This is a CLI tool that generates a JWT for Service Account authorization on GCP.
   </p>
 </div>
 
@@ -36,10 +36,10 @@ $ npm install -g @tomchinery/gcp-service-account-jwt-generator
 Upon running the CLI it will output an Authorization Bearer token to STDOUT that is signed with your GCP Service Account.
 
 ```bash
-$ gcp-service-account-jwt-generator --service-account <path_to_your_service_account>
+$ gcp-service-account-jwt-generator --service-account <path_to_your_service_account> --target-audience <your_oauth_client_id>
 ```
 
-There is some required arguments of the tool:
+__There is some required arguments of the tool__:
 
 ```bash
 --service-account
